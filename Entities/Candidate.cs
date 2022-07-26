@@ -1,17 +1,17 @@
 namespace jobPortal.Entities{
     public record Candidate{
 
-        public int CandidateId{get;set;}
+        public int candidateId{get;set;}
 
-        public string CandidateName{get; set;}
+        public string candidateName{get; set;}
 
-        public string CandidateContact{ get; set;}
+        public string candidateContact{ get; set;}
 
-        public string CandidateEmail{ get; set;}
+        public string candidateEmail{ get; set;}
 
-        public string CandidateResume{ get; set;}
+        public string candidateResume{ get; set;}
 
-        public string CandidateQualification{ get; set;}
+        public string candidateQualification{ get; set;}
 
         
 

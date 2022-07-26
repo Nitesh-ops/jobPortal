@@ -6,7 +6,7 @@ namespace jobPortal.Controllers
 {
 
     [ApiController]
-    [Route("api/[Controllers]")]
+    [Route("api/[Controller]")]
     public class CandidateController : Controller
     {
 
@@ -15,85 +15,68 @@ namespace jobPortal.Controllers
         {
             _context = context;
         }
-        [HttpGet]
 
+        [HttpGet]
         public async Task<ActionResult<List<Candidate>>> getAllCandidate()
         {
             return Ok(await _context.candidate.ToListAsync());
         }
 
         [HttpGet("{id}")]
-
         public async Task<ActionResult<Candidate>> getAllCandidateById(int id)
         {
-            var Candidate = await _context.candidate.SingleOrDefaultAsync(candidate => candidate.CandidateId == id);
-
-
-            if (Candidate == null)
+            var findCandidate = await _context.candidate.SingleOrDefaultAsync(candidate => candidate.candidateId == id);
+            if (findCandidate == null)
             {
-
                 return BadRequest(string.Format("Candidate Not Found"));
             }
-            return Ok(Candidate);
+            return Ok(findCandidate);
         }
 
         [HttpPost]
-
-        public async Task<ActionResult<List<Candidate>>> addCandidate(Candidate candidate)
-
+        public async Task<ActionResult<List<Candidate>>> addCandidate(Candidate requestCandidate)
         {
-
-            _context.candidate.Add(candidate);
-
+            _context.candidate.Add(requestCandidate);
             await _context.SaveChangesAsync();
-
             return Ok(await _context.candidate.ToListAsync());
 
         }
 
-        [HttpPut("{id}")]
-
-        public async Task<ActionResult<List<Candidate>>> updateCandidate(Candidate request, int id)
-
+        [HttpPut]
+        public async Task<ActionResult<List<Candidate>>> updateCandidate(Candidate requestCandidate)
         {
+            var findCandidate = await _context.candidate.FindAsync(requestCandidate.candidateId);
 
-            var can = await _context.candidate.FindAsync(id);
-
-            if (can == null)
-
+            if (findCandidate == null)
             {
-
                 return BadRequest(string.Format("This id does not match any candidate. Try again"));
-
             }
 
-            can.CandidateId = request.CandidateId;
+            findCandidate.candidateId = requestCandidate.candidateId;
 
-            can.CandidateName = request.CandidateName;
+            findCandidate.candidateName = requestCandidate.candidateName;
 
-            can.CandidateEmail = request.CandidateEmail;
+            findCandidate.candidateEmail = requestCandidate.candidateEmail;
 
-            can.CandidateQualification = request.CandidateQualification;
+            findCandidate.candidateQualification = requestCandidate.candidateQualification;
 
-            can.CandidateResume = request.CandidateResume;
+            findCandidate.candidateResume = requestCandidate.candidateResume;
 
-            can.CandidateContact = request.CandidateContact;
+            findCandidate.candidateContact = requestCandidate.candidateContact;
 
             await _context.SaveChangesAsync();
-
             return Ok(await _context.candidate.ToListAsync());
-
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<List<Candidate>>> updateCandidate(int id)
         {
-            var candidate = await _context.candidate.SingleOrDefaultAsync(candidate => candidate.CandidateId == id);
-            if (candidate == null)
+            var findCandidate = await _context.candidate.SingleOrDefaultAsync(candidate => candidate.candidateId == id);
+            if (findCandidate == null)
             {
                 return BadRequest(string.Format("Candidate not found"));
             }
-            _context.candidate.Remove(candidate);
+            _context.candidate.Remove(findCandidate);
             await _context.SaveChangesAsync();
             return Ok(await _context.candidate.ToListAsync());
         }
