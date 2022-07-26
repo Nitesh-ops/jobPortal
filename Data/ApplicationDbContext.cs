@@ -13,6 +13,8 @@ namespace jobPortal.Data
         public DbSet<Job> job { get; set; }
 
         public DbSet<Company> company{get; set;}
+
+        public DbSet<Candidate> candidate { get; set; }
     }
 
 }
