@@ -8,8 +8,8 @@ namespace jobPortal.Entities
         public int jobId { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
-        public DateOnly postDate { get; set; }
+        // [DataType(DataType.Date)]
+        public String postDate { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -17,7 +17,7 @@ namespace jobPortal.Entities
 
         [Required]
         [StringLength(100)]
-        public string jobLocation { get; set; }
+        public string jobLocat { get; set; }
 
         [Required]
         [StringLength(1000)]
