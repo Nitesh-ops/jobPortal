@@ -17,7 +17,7 @@ namespace jobPortal.Entities
 
         [Required]
         [StringLength(100)]
-        public string jobLocation { get; set; }
+        public string jobLl { get; set; }
 
         [Required]
         [StringLength(1000)]
