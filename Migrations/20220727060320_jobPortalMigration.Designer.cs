@@ -10,7 +10,7 @@ using jobPortal.Data;
 namespace jobPortal.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220727055148_jobPortalMigration")]
+    [Migration("20220727060320_jobPortalMigration")]
     partial class jobPortalMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

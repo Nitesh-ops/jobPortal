@@ -31,7 +31,7 @@ namespace jobPortal.Controllers
             AppliedJob appliedJob1 = new AppliedJob()
             {
                 appliedId = appliedId1,
-                candidateID = findCandidate.candidateId,
+                candidateId = findCandidate.candidateId,
                 jobId = findJob.jobId
             };
             _context.appliedJob.Add(appliedJob1);
@@ -39,6 +39,21 @@ namespace jobPortal.Controllers
             return Ok(await _context.appliedJob.ToListAsync());
 
 
+        }
+
+        [HttpGet]
+        [Route("/appliedJob/{appliedId}")]
+        public async Task<ActionResult<List<AppliedJob>>> getAllJobs(int appliedId1)
+        {
+            var findAppliedJob=await _context.appliedJob.SingleOrDefaultAsync(applyJob=>applyJob.appliedId==appliedId1);
+            if(findAppliedJob==null)
+            {
+                return BadRequest(string.Format("Please check Applied ID"));
+            }
+
+            var findCandidate = await _context.candidate.SingleOrDefaultAsync(candidate => candidate.candidateId == findAppliedJob.candidateId);
+            var findJob = await _context.job.SingleOrDefaultAsync(job => job.jobId == findAppliedJob.jobId);
+            return Ok(await _context.appliedJob.ToListAsync());
         }
 
 

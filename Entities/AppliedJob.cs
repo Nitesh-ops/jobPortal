@@ -4,7 +4,7 @@ namespace jobPortal.Entities
     {
         [Key]
         public int appliedId { get; set; }
-        public int candidateID { get; set; }
+        public int candidateId { get; set; }
         public int jobId { get; set; }
     }
 }
