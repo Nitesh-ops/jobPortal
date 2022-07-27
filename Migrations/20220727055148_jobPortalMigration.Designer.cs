@@ -10,7 +10,7 @@ using jobPortal.Data;
 namespace jobPortal.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220726125154_jobPortalMigration")]
+    [Migration("20220727055148_jobPortalMigration")]
     partial class jobPortalMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,6 +19,23 @@ namespace jobPortal.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("jobPortal.Entities.AppliedJob", b =>
+                {
+                    b.Property<int>("appliedId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("candidateID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("jobId")
+                        .HasColumnType("int");
+
+                    b.HasKey("appliedId");
+
+                    b.ToTable("appliedJob");
+                });
 
             modelBuilder.Entity("jobPortal.Entities.Candidate", b =>
                 {

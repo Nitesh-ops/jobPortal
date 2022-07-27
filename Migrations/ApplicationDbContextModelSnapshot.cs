@@ -18,6 +18,23 @@ namespace jobPortal.Migrations
                 .HasAnnotation("ProductVersion", "6.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("jobPortal.Entities.AppliedJob", b =>
+                {
+                    b.Property<int>("appliedId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("candidateID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("jobId")
+                        .HasColumnType("int");
+
+                    b.HasKey("appliedId");
+
+                    b.ToTable("appliedJob");
+                });
+
             modelBuilder.Entity("jobPortal.Entities.Candidate", b =>
                 {
                     b.Property<int>("candidateId")

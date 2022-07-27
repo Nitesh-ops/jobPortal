@@ -13,6 +13,21 @@ namespace jobPortal.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "appliedJob",
+                columns: table => new
+                {
+                    appliedId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    candidateID = table.Column<int>(type: "int", nullable: false),
+                    jobId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_appliedJob", x => x.appliedId);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "candidate",
                 columns: table => new
                 {
@@ -78,6 +93,9 @@ namespace jobPortal.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "appliedJob");
+
             migrationBuilder.DropTable(
                 name: "candidate");
 

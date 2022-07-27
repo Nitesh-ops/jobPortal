@@ -2,9 +2,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace jobPortal.Entities
 {
-    public class Job
+    public record Job
     {
-        [Key]
         public int jobId { get; set; }
 
         [Required]

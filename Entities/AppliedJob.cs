@@ -2,8 +2,9 @@ namespace jobPortal.Entities
 {
     public record AppliedJob
     {
+        [Key]
         public int appliedId { get; set; }
-        public Candidate candidate { get; set; }
-        public int jobID { get; set; }
+        public int candidateID { get; set; }
+        public int jobId { get; set; }
     }
 }

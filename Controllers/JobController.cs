@@ -24,9 +24,9 @@ namespace jobPortal.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Job>>> postJobs(List<Job> jobs)
+        public async Task<ActionResult<List<Job>>> postJobs(Job jobs)
         {
-            _context.job.AddRange(jobs);
+            _context.job.Add(jobs);
             await _context.SaveChangesAsync();
             return Ok(await _context.job.ToListAsync());
         }
