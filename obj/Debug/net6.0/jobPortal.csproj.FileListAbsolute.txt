@@ -33,3 +33,9 @@ C:\AspProjects\jobPortal\obj\Debug\net6.0\refint\jobPortal.dll
 C:\AspProjects\jobPortal\obj\Debug\net6.0\jobPortal.pdb
 C:\AspProjects\jobPortal\obj\Debug\net6.0\jobPortal.genruntimeconfig.cache
 C:\AspProjects\jobPortal\obj\Debug\net6.0\ref\jobPortal.dll
+C:\AspProjects\jobPortal\bin\Debug\net6.0\System.Web.Cors.dll
+C:\AspProjects\jobPortal\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\AspProjects\jobPortal\bin\Debug\net6.0\System.Web.Http.dll
+C:\AspProjects\jobPortal\bin\Debug\net6.0\System.Web.Http.Cors.dll
+C:\AspProjects\jobPortal\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\AspProjects\jobPortal\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

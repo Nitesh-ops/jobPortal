@@ -1,10 +1,12 @@
 global using Microsoft.AspNetCore.Mvc;
+using System.Web.Http.Cors;
 using jobPortal.Data;
 using jobPortal.Entities;
 
 namespace jobPortal.Controllers
 {
 
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [ApiController]
     [Route("api/[controller]")]
     public class JobController : Controller
